@@ -15,10 +15,11 @@ public class Customer {
     private int CusId;
     private String Username;
     private String Password;
-    private String DateCreate;
-    private int CreditCard;      
+    private Date DateCreate;
+    private String CreditCard;      
     private  Date Bod;
     private String  FullName;
+    private String Gender;
     private String Address;
     private String Phone;
     private String Email;
@@ -28,123 +29,135 @@ public class Customer {
     public Customer() {
     }
 
-	public Customer(int CusId, String Username, String Password, String DateCreate, int CreditCard, Date Bod, String FullName, String Address, String Phone, String Email, String Avata, boolean Status) {
-		this.CusId = CusId;
-		this.Username = Username;
-		this.Password = Password;
-		this.DateCreate = DateCreate;
-		this.CreditCard = CreditCard;
-		this.Bod = Bod;
-		this.FullName = FullName;
-		this.Address = Address;
-		this.Phone = Phone;
-		this.Email = Email;
-		this.Avata = Avata;
-		this.Status = Status;
-	}
-
-	public String getDateCreate() {
-		return DateCreate;
-	}
-
-	public void setDateCreate(String DateCreate) {
-		this.DateCreate = DateCreate;
-	}
-
-    public int getCusId() {
-        return CusId;
+    public Customer(int CusId, String Username, String Password, Date DateCreate, String CreditCard, Date Bod, String FullName, String Gender, String Address, String Phone, String Email, String Avata, boolean Status) {
+        this.CusId = CusId;
+        this.Username = Username;
+        this.Password = Password;
+        this.DateCreate = DateCreate;
+        this.CreditCard = CreditCard;
+        this.Bod = Bod;
+        this.FullName = FullName;
+        this.Gender = Gender;
+        this.Address = Address;
+        this.Phone = Phone;
+        this.Email = Email;
+        this.Avata = Avata;
+        this.Status = Status;
     }
+
+    public String getCreditCard() {
+        return CreditCard;
+    }
+
+    public void setCreditCard(String CreditCard) {
+        this.CreditCard = CreditCard;
+    }
+
+    
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String Gender) {
+        this.Gender = Gender;
+    }
+
+    
 
     public void setCusId(int CusId) {
         this.CusId = CusId;
-    }
-
-    public String getUsername() {
-        return Username;
     }
 
     public void setUsername(String Username) {
         this.Username = Username;
     }
 
-    public String getPassword() {
-        return Password;
-    }
-
     public void setPassword(String Password) {
         this.Password = Password;
     }
 
-    public int getCreditCard() {
-        return CreditCard;
-    }
-
-    public void setCreditCard(int CreditCard) {
-        this.CreditCard = CreditCard;
+    public void setDateCreate(Date DateCreate) {
+        this.DateCreate = DateCreate;
     }
 
     
 
-    public String getAddress() {
-        return Address;
+    public void setBod(Date Bod) {
+        this.Bod = Bod;
+    }
+
+    public void setFullName(String FullName) {
+        this.FullName = FullName;
     }
 
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
-
     public void setPhone(String Phone) {
         this.Phone = Phone;
-    }
-
-    public String getEmail() {
-        return Email;
     }
 
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
-    public String getAvata() {
-        return Avata;
-    }
-
     public void setAvata(String Avata) {
         this.Avata = Avata;
-    }
-
-    public boolean isStatus() {
-        return Status;
     }
 
     public void setStatus(boolean Status) {
         this.Status = Status;
     }
 
+    public int getCusId() {
+        return CusId;
+    }
 
+    public String getUsername() {
+        return Username;
+    }
 
+    public String getPassword() {
+        return Password;
+    }
 
-	public Date getBod() {
-		return Bod;
-	}
-
-	public void setBod(Date Bod) {
-		this.Bod = Bod;
-	}
-
-	public String getFullName() {
-		return FullName;
-	}
-
-	public void setFullName(String FullName) {
-		this.FullName = FullName;
-	}
+    public Date getDateCreate() {
+        return DateCreate;
+    }
 
    
+
+    public Date getBod() {
+        return Bod;
+    }
+
+    public String getFullName() {
+        return FullName;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public String getAvata() {
+        return Avata;
+    }
+
+    public boolean isStatus() {
+        return Status;
+    }
+
+	
 
 }
 

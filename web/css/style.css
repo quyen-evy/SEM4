@@ -341,7 +341,6 @@ i.contact1 {
 	border: none;
 	width: 84.33%;
 }
-
 .search input[type="submit"] {
 	background: url('../images/sprit-1.png') no-repeat 0px 0px;
 	border: none;
@@ -1860,13 +1859,6 @@ font-weight: 700;
 		margin-top: 2em;
 	}
 	.main-contact form input[type="text"], .main-contact form textarea {
-		padding: 8px 12px;
-		border: 2px solid #000;
-		font-size: 1.1em;
-		margin-bottom: 1.2em;
-		font-weight: 400;
-	}
-        .main-contact form input[type="password"], .main-contact form textarea {
 		padding: 8px 12px;
 		border: 2px solid #000;
 		font-size: 1.1em;

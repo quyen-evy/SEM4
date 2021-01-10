@@ -4,11 +4,15 @@
     Author     : Quyen Evy
 --%>
 
+<%@page import="com.g5cinemamovie.model.Role"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.g5cinemamovie.model.Admin"%>
+<%@page import="com.g5cinemamovie.dao.AdminDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE HTML>
 <html>
-      <head>
+    <head>
         <title>Easy Admin Panel an Admin Panel Category Flat Bootstrap Responsive Website Template | Tables :: w3layouts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,8 +44,6 @@
         <!---//webfonts---> 
         <!-- Meters graphs -->
         <script src="js/jquery-1.10.2.min.js"></script>
-        <!-- Placed js at the end of the document so the pages load faster -->
-
     </head> 
     <body class="sticky-header left-side-collapsed"  onload="initMap()">
         <section>
@@ -55,76 +57,98 @@
                             <h3 class="blank1">Update profile</h3>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="horizontal-form">
-                                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-                                         <!--
+                                    <form class="form-horizontal" action="/G5CinemaMovie/UpdateAdServlet" method="post" enctype="multipart/form-data">
+                                    <%
                                         int id = Integer.parseInt(request.getParameter("id"));
-                                        FilmDAO filDAO = new FilmDAO();
-                                        Film rs = filDAO.FindProduct(id);
-                                    -->  
-                                     <div class="form-group">
+                                        AdminDAO adDAO = new AdminDAO();
+                                        Admin rs = adDAO.FindAdmin(id);
+                                    %>
+                                    <div class="form-group">
+                                        <input type="hidden" value="<%out.print(rs.getAdmId());%>" name="id"> 
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputFile">Avatar</label>
                                         <br>
-                                        <input type="file" id="exampleInputFile" name="Picture">
+                                        <input type="file" id="exampleInputFile" name="Avata">
                                         <br>
-                                        <img src='/G5CinemaMovie/images/' width="100px" style=""/>
+                                        <img src='/G5CinemaMovie/Admin/images/<%out.print(rs.getAvata());%>' width="100px" style=""/>
                                     </div>
-                                     <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">Fullname</label>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Full name</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Fullname">
-                                            <input type='hidden' name="id" value='' />
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getFullName());%>' name="FullName">
                                         </div>
                                     </div>
-                                     <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="radio" class="col-sm-2 control-label">Gender</label>
+                                            <div class="col-sm-8">
+                                                <% 
+                                                if(rs.getGender().equals("Male")){
+                                                    out.print("<div class='radio-inline'><label><input type='radio' checked='' name='Gender' value='Male'> Male</label></div>");
+                                                    out.print("<div class='radio-inline'><label><input type='radio' name='Gender' value='Female'> Female</label></div>");
+                                                }   
+                                                else{
+                                                    out.print("<div class='radio-inline'><label><input type='radio' name='Gender' value='Male'> Male</label></div>");
+                                                    out.print("<div class='radio-inline'><label><input type='radio' checked='' name='Gender' value='Female'> Female</label></div>");
+                                                }
+                                                %>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Birthday</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Birthday">
-                                            <input type='hidden' name="id" value='' />
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getBod());%>' name="Bod">
+
                                         </div>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Address</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Address">
-                                            <input type='hidden' name="id" value='' />
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getAddress());%>' name="Address">
+
                                         </div>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Phone</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Phone">
-                                            <input type='hidden' name="id" value='' />
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getPhone());%>' name="Phone">
+
                                         </div>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Email</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Email">
-                                            <input type='hidden' name="id" value='' />
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getEmail());%>' name="Email">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="disabledinput" class="col-sm-2 control-label">Role</label>
+                                        <div class="col-sm-8">
+                                            <% 
+                                               Role role= adDAO.GetRoleById(rs.getRoleId());
+                                            out.print("<input disabled='' type='text' class='form-control1' id='disabledinput' value='"+role.getNameRole()+"' name='RoleId'>");
+                                            %>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Username</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" value='' name="Username" >
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getUsername());%>' name="Username" >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control1" id="focusedinput" value=""name="Password">
+                                            <input type="password" class="form-control1" id="focusedinput" value="<%out.print(rs.getPass());%>"name="Password">
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Retype password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control1" id="focusedinput" value='' name="Password">
+                                            <input type="password" class="form-control1" id="focusedinput" value="<%out.print(rs.getPass());%>"name="RePassword">
                                         </div>
-                                    </div>
-                                   
-                                   
-                                   
+                                    </div>        
                                     <div class="panel-footer">
                                         <div class="row  container-fluid">
                                             <div class="col-sm-12 col-sm-offset-2" style="">
@@ -137,6 +161,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <jsp:include page="footer.jsp"></jsp:include>
         </section>

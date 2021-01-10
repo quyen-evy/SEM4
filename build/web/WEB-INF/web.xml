@@ -16,6 +16,54 @@
         <servlet-name>UpdateProServlet1</servlet-name>
         <servlet-class>com.g5cinemamovie.controller.UpdateProServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.SearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.UpdateAdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.EmployeeAdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.AddEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteEmServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.DeleteEmServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.UpdateEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.CustomerAdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCusAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.AddCusAdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCusServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.DeleteCusServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCusAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.UpdateCusAdServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddShowtimesServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.AddShowtimesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowtimesAdServlet</servlet-name>
+        <servlet-class>com.g5cinemamovie.controller.ShowtimesAdServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductAdServlet</servlet-name>
         <url-pattern>/ProductAdServlet</url-pattern>
@@ -79,6 +127,54 @@
     <servlet-mapping>
         <servlet-name>UpdateProServlet1</servlet-name>
         <url-pattern>/UpdateProServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAdServlet</servlet-name>
+        <url-pattern>/UpdateAdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeAdServlet</servlet-name>
+        <url-pattern>/EmployeeAdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/AddEmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteEmServlet</servlet-name>
+        <url-pattern>/DeleteEmServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <url-pattern>/UpdateEmployeeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerAdServlet</servlet-name>
+        <url-pattern>/CustomerAdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCusAdServlet</servlet-name>
+        <url-pattern>/AddCusAdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCusServlet</servlet-name>
+        <url-pattern>/DeleteCusServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCusAdServlet</servlet-name>
+        <url-pattern>/UpdateCusAdServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddShowtimesServlet</servlet-name>
+        <url-pattern>/AddShowtimesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowtimesAdServlet</servlet-name>
+        <url-pattern>/ShowtimesAdServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

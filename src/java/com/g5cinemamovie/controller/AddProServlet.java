@@ -9,6 +9,8 @@ import com.g5cinemamovie.dao.FilmDAO;
 import com.g5cinemamovie.model.Film;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,25 +42,31 @@ public class AddProServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-	   
+
             Film film = new Film();
             film.setTypId(Integer.parseInt(request.getParameter("TypId")));
+            film.setLanguage(request.getParameter("Language"));
+            film.setAgeLimit(Integer.parseInt(request.getParameter("AgeLimit")));
             film.setCountry(request.getParameter("Country"));
             film.setNameF(request.getParameter("NameF"));
             film.setDirector(request.getParameter("Director"));
             film.setActor(request.getParameter("Actor"));
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            film.setReleaseDate(sdf.parse(request.getParameter("ReleaseDate")));
             film.setDuration(Integer.parseInt(request.getParameter("Duration")));
             film.setDescription(request.getParameter("Description"));
-             Part part=request.getPart("Picture");
-            String dirUrl = request.getServletContext().getRealPath("")+"Images\\"+ part.getSubmittedFileName();
+            Part part = request.getPart("Picture");
+            String dirUrl = request.getServletContext().getRealPath("") + "Images\\" + part.getSubmittedFileName();
             part.write(dirUrl);
-            film.setPicture(""+part.getSubmittedFileName());
+            film.setPicture("" + part.getSubmittedFileName());
+            film.setStatus(request.getParameter("Status"));
+            
             FilmDAO filmDAO = new FilmDAO();
-            if(filmDAO.AddNew(film))
-                 response.sendRedirect("Admin/tables.jsp"); 
-        }
-        catch(Exception ex)
-        {
+            if (filmDAO.AddNew(film)) {
+                response.sendRedirect("Admin/tables.jsp");
+            }
+        } catch (Exception ex) {
+               JOptionPane.showMessageDialog(null, "Erorr connect " + ex);
         }
     }
 
@@ -101,5 +110,3 @@ public class AddProServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-
-

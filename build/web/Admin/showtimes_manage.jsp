@@ -4,6 +4,13 @@
     Author     : Quyen Evy
 --%>
 
+<%@page import="com.g5cinemamovie.model.ViewFormat"%>
+
+<%@page import="com.g5cinemamovie.model.Film"%>
+<%@page import="com.g5cinemamovie.model.Room"%>
+<%@page import="com.g5cinemamovie.model.Room"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.g5cinemamovie.dao.ShowtimesDAO"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -60,64 +67,84 @@
                             <h3 class="blank1">Showtimes Manage</h3>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="horizontal-form">
-                                    <form class="form-horizontal" action="/G5CinemaMovie/AddProServlet" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">Movie name</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control1" id="focusedinput" placeholder="Movie name" name="NameF">
-                                            </div>
+                                    <form class="form-horizontal" action="/G5CinemaMovie/AddShowtimesServlet" method="post" enctype="multipart/form-data">
+                                    <% ShowtimesDAO showDAO = new ShowtimesDAO();
+                                        ArrayList<Film> film = showDAO.FindAllMovie();
+                                        ArrayList<ViewFormat> view = showDAO.FindAllView();
+                                    %>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Movie name</label>
+                                        <div class="col-sm-8">
+                                            <%
+                                                out.print("<select name='FilId' id='selector1' class='form-control1'>");
+                                                for (Film item : film) {
+                                                    out.print("<option value=" + item.getFilId() + "> " + item.getNameF() + "</option>");
+                                                }
+                                                out.print("</select>");
+                                            %>
                                         </div>
+                                    </div>
 
 
-                                        <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">Room</label>
-                                            <div class="col-sm-8">
-                                                <input type="number" class="form-control1" id="focusedinput" placeholder="Room" name="Room">
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Room</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control1" id="focusedinput" name="RoomId" placeholder="Room">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">View</label>
+                                        <div class="col-sm-8">
+                                            <%
+                                                out.print("<select name='ViewId' id='selector1' class='form-control1'>");
+                                                for (ViewFormat item : view) {
+                                                    out.print("<option value=" + item.getViewId() + "> " + item.getNameView() + "</option>");
+                                                }
+                                                out.print("</select>");
+                                            %>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Date</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" class="form-control1" id="focusedinput" placeholder="Date" name="Date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Time begin</label>
+                                        <div class="col-sm-8">
+                                            <input type="time" class="form-control1" id="focusedinput" name="TimeBegin">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Time end</label>
+                                        <div class="col-sm-8">
+                                            <input type="time" class="form-control1" id="focusedinput" name="TimeEnd">
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="row  container-fluid">
+                                            <div class="col-sm-12 col-sm-offset-2" style="">
+                                                <input type="submit" value="Add new" class="btn-success btn">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">View</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control1" id="focusedinput" placeholder="View" name="View">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">Date</label>
-                                            <div class="col-sm-8">
-                                                <input type="date" class="form-control1" id="focusedinput" placeholder="Date" name="Date">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">Time</label>
-                                            <div class="col-sm-8">
-                                                <input type="time" class="form-control1" id="focusedinput" placeholder="Director" name="Director">
-                                            </div>
-                                        </div>
-
-
-                                        <div class="panel-footer">
-                                            <div class="row  container-fluid">
-                                                <div class="col-sm-12 col-sm-offset-2" style="">
-                                                    <input type="submit" value="Add new" class="btn-success btn">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form action="#" method="GET">
-                                        <div class="input-group input-group-ind">
-                                            <input type="text" name="search" class="form-control1 input-search" placeholder="Search...">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-success" type="submit"><i class="fa fa-search icon-ser"></i></button>
-                                            </span>
-                                        </div><!-- Input Group -->
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
+                                <form action="#" method="GET">
+                                    <div class="input-group input-group-ind">
+                                        <input type="text" name="search" class="form-control1 input-search" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success" type="submit"><i class="fa fa-search icon-ser"></i></button>
+                                        </span>
+                                    </div><!-- Input Group -->
+                                </form>
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
+            </div>
             <jsp:include page="footer.jsp"></jsp:include>
         </section>
     </body>

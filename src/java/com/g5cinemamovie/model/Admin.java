@@ -12,23 +12,45 @@ import java.util.Date;
  * @author ASUS
  */
 public class Admin {
-
+    private int AdmId;
+    private String Username;
+    private String Pass;
+    private String Avata;
+    private String FullName;
+    private String Gender;
+    private Date Bod;
+    private String Address;
+    private String Phone;
+    private String Email;
+    private int RoleId;
+    private Boolean Status;
     public Admin() {
     }
 
-	public Admin(int AdmId, String Username, String Pass, String Avata, String FullName, Date Bod, String Address, String Phone, String Email, int RoleId, Boolean Status) {
-		this.AdmId = AdmId;
-		this.Username = Username;
-		this.Pass = Pass;
-		this.Avata = Avata;
-		this.FullName = FullName;
-		this.Bod = Bod;
-		this.Address = Address;
-		this.Phone = Phone;
-		this.Email = Email;
-		this.RoleId = RoleId;
-		this.Status = Status;
-	}
+    public Admin(int AdmId, String Username, String Pass, String Avata, String FullName, String Gender, Date Bod, String Address, String Phone, String Email, int RoleId, Boolean Status) {
+        this.AdmId = AdmId;
+        this.Username = Username;
+        this.Pass = Pass;
+        this.Avata = Avata;
+        this.FullName = FullName;
+        this.Gender = Gender;
+        this.Bod = Bod;
+        this.Address = Address;
+        this.Phone = Phone;
+        this.Email = Email;
+        this.RoleId = RoleId;
+        this.Status = Status;
+    }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String Gender) {
+        this.Gender = Gender;
+    }
+
+	
 
 	public String getAvata() {
 		return Avata;
@@ -119,16 +141,6 @@ public class Admin {
     public void setStatus(Boolean Status) {
         this.Status = Status;
     }
-    private int AdmId;
-    private String Username;
-    private String Pass;
-    private String Avata;
-    private String FullName;
-    private Date Bod;
-    private String Address;
-    private String Phone;
-    private String Email;
-    private int RoleId;
-    private Boolean Status;
+   
 }
 

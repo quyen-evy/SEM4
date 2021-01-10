@@ -72,12 +72,24 @@
                                             <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getNameF());%>' name="NameF" >
                                         </div>
                                     </div>
+                                        <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Age limitation</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" class="form-control1" id="focusedinput" value='<%out.print(rs.getAgeLimit());%>' name="AgeLimit">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Country</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control1" id="focusedinput" value="<%out.print(rs.getCountry());%>"name="Country">
                                         </div>
                                     </div>
+                                     <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Language</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control1" id="focusedinput" value='<%out.print(rs.getLanguage());%>' name="Language">
+                                        </div>
+                                    </div>    
                                     <div class="form-group">
                                         <%  AdminDAO AdDAO = new AdminDAO();
                                             ArrayList<TypeFilm> list = AdDAO.FindAllType();
@@ -107,6 +119,12 @@
                                             <input type='hidden' name="id" value='<%out.print(rs.getFilId());%>' />
                                         </div>
                                     </div>
+                                         <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">Release date</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" class="form-control1" id="focusedinput" value='<%out.print(rs.getReleaseDate());%>' name="ReleaseDate">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Duration</label>
                                         <div class="col-sm-8">
@@ -125,6 +143,21 @@
                                         <input type="file" id="exampleInputFile" name="Picture">
                                         <br>
                                         <img src='/G5CinemaMovie/images/<%out.print(rs.getPicture());%>' width="100px" style=""/>
+                                    </div>
+                                     <div class="form-group">
+                                        <label for="selector1" class="col-sm-2 control-label">Status</label>
+                                        <div class="col-sm-8"><select name="Status" id="selector1" class="form-control1">
+                                                <% 
+                                                if(rs.getStatus() == null)
+                                                {
+                                                    out.print("<option value='Showing'>Showing</option><option value='Coming'>Coming</option><option value='Stop'>Stop</option>");
+                                                }
+                                                else{
+                                                    out.print(rs.getStatus());
+                                                    out.print("<option value='Showing'>Showing</option><option value='Coming'>Coming</option><option value='Stop'>Stop</option>");
+                                                }
+                                                %>
+                                            </select></div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="row  container-fluid">

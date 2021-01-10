@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
     <!-- left side start-->
 		<div class="left-side sticky-left-side">
 			<!--logo and iconic logo start-->
@@ -40,5 +41,7 @@
 				<!--sidebar nav end-->
 			</div>
 		</div>
+    
     <!-- left side end-->
+    
 </html>
