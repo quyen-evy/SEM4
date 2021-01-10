@@ -60,6 +60,7 @@
                 <!-- main content start-->
                 <div class="main-content">
                 <jsp:include page="header.jsp"></jsp:include>
+
                     <div id="page-wrapper">
                         <div class="graphs">
                             <h3 class="blank1">Movie Manage</h3>
@@ -87,7 +88,7 @@
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Age limitation</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control1" id="focusedinput" placeholder="Age" name="Age">
+                                            <input type="number" class="form-control1" id="focusedinput" placeholder="Age" name="AgeLimit">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -117,7 +118,7 @@
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">Release date</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control1" id="focusedinput" placeholder="Releasedate" name="Releasedate">
+                                            <input type="date" class="form-control1" id="focusedinput" placeholder="Releasedate" name="ReleaseDate">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -128,18 +129,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="txtarea1" class="col-sm-2 control-label">Description</label>
-                                        <div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
+                                        <div class="col-sm-8"><textarea name="Description" id="txtarea1" cols="50" rows="4" class="form-control1"></textarea></div>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile">File input</label>
-
                                         <input type="file" id="exampleInputFile" name="Picture">
                                     </div>
                                     <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">Status</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control1" id="focusedinput" placeholder="Status" name="Status">
-                                        </div>
+                                        <label for="selector1" class="col-sm-2 control-label">Status</label>
+                                        <div class="col-sm-8"><select name="Status" id="selector1" class="form-control1">
+                                                <option value="Showing">Showing</option>
+                                                <option value="Coming">Coming</option>
+                                                <option value="Stop">Stop</option>
+                                            </select></div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="row  container-fluid">
@@ -149,18 +151,25 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form action="#" method="GET">
+                                <form action="tables_searchresult.jsp" method="post">
                                     <div class="input-group input-group-ind">
                                         <input type="text" name="search" class="form-control1 input-search" placeholder="Search...">
                                         <span class="input-group-btn">
                                             <button class="btn btn-success" type="submit"><i class="fa fa-search icon-ser"></i></button>
                                         </span>
                                     </div><!-- Input Group -->
+                                    <br/>
+                                    <div class="form-group">
+                                        <label for="radio" class="col-sm-5 control-label" style="text-align: right">Search by</label>
+                                        <div class="col-sm-7">
+                                            <div class="radio-inline"><label><input type="radio" checked="" name="searchby" value="NameFilm"> Movie name</label></div>
+                                            <div class="radio-inline"><label><input type="radio" name="searchby" value="Status"> Status </label></div>
+                                        </div>
+                                    </div>
                                 </form>
                                 <br/>
                             </div>
                         </div>
-
                         <jsp:include page="/ProductAdServlet"></jsp:include> 
                         </div>
                     </div>

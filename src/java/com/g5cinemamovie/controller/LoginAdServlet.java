@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -40,16 +41,19 @@ public class LoginAdServlet extends HttpServlet {
             String pass=request.getParameter("pass");
             AdminDAO adDAO=new AdminDAO();
             Admin rs=adDAO.FindCustomerByUserPass(user, pass);
+            int id = rs.getAdmId();
             if(rs==null)
                 response.sendRedirect("Admin/login.jsp");
 	    else{
 		HttpSession session=request.getSession();
+                session.setAttribute("ID", id);
                 session.setAttribute("USER", user);
 		session.setAttribute("PASS", pass);
                 response.sendRedirect("Admin/tables.jsp");}
         }
         catch(Exception ex)
         {
+              JOptionPane.showMessageDialog(null, "Erorr connect " + ex);
         }
     }
 

@@ -8,6 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <script src="js/jquery-1.10.2.min.js"></script>
+ <script src="js/jquery.nicescroll.js"></script>
+        <script src="js/scripts.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>

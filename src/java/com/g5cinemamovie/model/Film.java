@@ -5,6 +5,8 @@
  */
 package com.g5cinemamovie.model;
 
+import java.util.Date;
+
 /**
  *
  * @author ASUS
@@ -13,123 +15,144 @@ public class Film {
 private int FilId;
 private int TypId;
 private String Language;
+private int AgeLimit;
 private String Country;
 private String NameF;
 private String Director;
 private String Actor;
+private Date ReleaseDate;
 private int Duration;
 private String  Description;
 private String  Picture;
-private Boolean Status;	
+private String Status;	
 
+    public Film() {
+    }
 
+    public Film(int FilId, int TypId, String Language, int AgeLimit, String Country, String NameF, String Director, String Actor, Date ReleaseDate, int Duration, String Description, String Picture, String Status) {
+        this.FilId = FilId;
+        this.TypId = TypId;
+        this.Language = Language;
+        this.AgeLimit = AgeLimit;
+        this.Country = Country;
+        this.NameF = NameF;
+        this.Director = Director;
+        this.Actor = Actor;
+        this.ReleaseDate = ReleaseDate;
+        this.Duration = Duration;
+        this.Description = Description;
+        this.Picture = Picture;
+        this.Status = Status;
+    }
 
-	public Film(int FilId, int TypId, String Language, String Country, String NameF, String Director, String Actor, int Duration, String Description, String Picture, Boolean Status) {
-		this.FilId = FilId;
-		this.TypId = TypId;
-		this.Language = Language;
-		this.Country = Country;
-		this.NameF = NameF;
-		this.Director = Director;
-		this.Actor = Actor;
-		this.Duration = Duration;
-		this.Description = Description;
-		this.Picture = Picture;
-		this.Status = Status;
-	}
+    public int getFilId() {
+        return FilId;
+    }
 
-	public Film() {
-	}
+    public int getTypId() {
+        return TypId;
+    }
 
-	public String getLanguage() {
-		return Language;
-	}
+    public String getLanguage() {
+        return Language;
+    }
 
-	public void setLanguage(String Language) {
-		this.Language = Language;
-	}
+    public int getAgeLimit() {
+        return AgeLimit;
+    }
 
-	public int getFilId() {
-		return FilId;
-	}
+    public String getCountry() {
+        return Country;
+    }
 
-	public void setFilId(int FilId) {
-		this.FilId = FilId;
-	}
+    public String getNameF() {
+        return NameF;
+    }
 
-	public int getTypId() {
-		return TypId;
-	}
+    public String getDirector() {
+        return Director;
+    }
 
-	public void setTypId(int TypId) {
-		this.TypId = TypId;
-	}
+    public String getActor() {
+        return Actor;
+    }
 
-	public String getCountry() {
-		return Country;
-	}
+    public Date getReleaseDate() {
+        return ReleaseDate;
+    }
 
-	public void setCountry(String Country) {
-		this.Country = Country;
-	}
+    public int getDuration() {
+        return Duration;
+    }
 
-	public String getNameF() {
-		return NameF;
-	}
+    public String getDescription() {
+        return Description;
+    }
 
-	public void setNameF(String NameF) {
-		this.NameF = NameF;
-	}
+    public String getPicture() {
+        return Picture;
+    }
 
-	public String getDirector() {
-		return Director;
-	}
+    public String getStatus() {
+        return Status;
+    }
 
-	public void setDirector(String Director) {
-		this.Director = Director;
-	}
+    public void setFilId(int FilId) {
+        this.FilId = FilId;
+    }
 
-	public String getActor() {
-		return Actor;
-	}
+    public void setTypId(int TypId) {
+        this.TypId = TypId;
+    }
 
-	public void setActor(String Actor) {
-		this.Actor = Actor;
-	}
+    public void setLanguage(String Language) {
+        this.Language = Language;
+    }
 
-	public int getDuration() {
-		return Duration;
-	}
+    public void setAgeLimit(int AgeLimit) {
+        this.AgeLimit = AgeLimit;
+    }
 
-	public void setDuration(int Duration) {
-		this.Duration = Duration;
-	}
+    public void setCountry(String Country) {
+        this.Country = Country;
+    }
 
-	public String getDescription() {
-		return Description;
-	}
+    public void setNameF(String NameF) {
+        this.NameF = NameF;
+    }
 
-	public void setDescription(String Description) {
-		this.Description = Description;
-	}
+    public void setDirector(String Director) {
+        this.Director = Director;
+    }
 
-	public String getPicture() {
-		return Picture;
-	}
+    public void setActor(String Actor) {
+        this.Actor = Actor;
+    }
 
-	public void setPicture(String Picture) {
-		this.Picture = Picture;
-	}
+    public void setReleaseDate(Date ReleaseDate) {
+        this.ReleaseDate = ReleaseDate;
+    }
 
-	public Boolean getStatus() {
-		return Status;
-	}
+    public void setDuration(int Duration) {
+        this.Duration = Duration;
+    }
 
-	public void setStatus(Boolean Status) {
-		this.Status = Status;
-	}
+    public void setDescription(String Description) {
+        this.Description = Description;
+    }
+
+    public void setPicture(String Picture) {
+        this.Picture = Picture;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+	
 
 }
+
 
 
 

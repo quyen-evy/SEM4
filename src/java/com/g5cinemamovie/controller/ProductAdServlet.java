@@ -36,7 +36,7 @@ public class ProductAdServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.print("<div class='xs tabls'>"
-                    + "<div class='bs-example4' data-example-id='simple-responsive-table>"
+                    + "<div class='bs-example4'style='overflow: auto;height: 80vh' data-example-id='simple-responsive-table>"
                     + "<div class='table-responsive'>"
                     + "<table class='table table-bordered'>"
                     + "<thead>"
@@ -44,12 +44,16 @@ public class ProductAdServlet extends HttpServlet {
                     + "<th>ID</th>"
                     + "<th>Type</th>"
                     + "<th>Country</th>"
-                    + "<th>Name Film</th>"
+                    + "<th>Movie name</th>"
+                    + "<th>Age limitation</th>"
                     + "<th>Director</th>"
                     + "<th>Actor</th>"
+                    + "<th>Language</th>"
                     + "<th>Duration</th>"
+                    + "<th>Release date</th>"
                     + "<th>Description</th>"
                     + "<th>Picture</th>"
+                     + "<th>Status</th>"
                     + "<th></th>"
                     + "<th></th>"
                     + "</tr>"
@@ -61,16 +65,20 @@ public class ProductAdServlet extends HttpServlet {
             for (Film item : list) {
                 out.print("<tr>"
                         + "<th scope='row'>" + item.getFilId() + "</th>"
-                        + "<td>" + filmDAO.GetTypeById(item.getTypId()).getNameType()  + "</td>"
+                        + "<td>" + filmDAO.GetTypeById(item.getTypId()).getNameType() + "</td>"
                         + "<td>" + item.getCountry() + "</td>"
                         + "<td>" + item.getNameF() + "</td>"
+                        + "<td>" + item.getAgeLimit() + "</td>"
                         + "<td>" + item.getDirector() + "</td>"
                         + "<td>" + item.getActor() + "</td>"
+                        + "<td>" + item.getLanguage() + "</td>"
                         + "<td>" + item.getDuration() + "</td>"
+                        + "<td>" + item.getReleaseDate() + "</td>"
                         + "<td>" + item.getDescription() + "</td>"
                         + "<td> <img src='../images/" + item.getPicture() + "' width='100px'/></td>"
-                        + "<td><a href=updatepro.jsp?id="+item.getFilId()+" class=\"btn-success btn\">Update</a></td>"
-                        +"<td><a class='btn-default btn' href=\\G5CinemaMovie\\DeleteProServlet?id="+item.getFilId()+">Delete</a></td>"
+                         + "<td>" + item.getStatus()+ "</td>"
+                        + "<td><a href=updatepro.jsp?id=" + item.getFilId() + " class=\"btn-success btn\">Update</a></td>"
+                        + "<td><a class='btn-default btn' href=\\G5CinemaMovie\\DeleteProServlet?id=" + item.getFilId() + ">Delete</a></td>"
                         + "</tr>");
                 i++;
             }
@@ -79,7 +87,7 @@ public class ProductAdServlet extends HttpServlet {
                     + "</div><!-- /.table-responsive -->"
                     + "</div>"
                     + "</div>");
-           
+
         }
     }
 
@@ -123,5 +131,3 @@ public class ProductAdServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-
-

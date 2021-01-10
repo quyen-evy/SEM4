@@ -43,7 +43,7 @@ public class AddCusServlet extends HttpServlet {
 			cus.setAddress(request.getParameter("address"));
 			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			cus.setBod(sdf.parse(request.getParameter("dob")));
-			cus.setCreditCard(123);
+			cus.setCreditCard("123");
 			cus.setEmail(request.getParameter("email"));
 			cus.setFullName(request.getParameter("name"));
 			cus.setPassword(request.getParameter("pass"));
